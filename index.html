@@ -4,21 +4,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/style.css">
-    <script src="./assets/script.js"></script>
     <title>Tarefas</title>
 </head>
 <body>
-    <div>
-        <h1>Adicione uma tarefa</h1>
-        <input type="text" placeholder="adicione uma tarefa">
-        <button>add</button>
-        <ul>
-
+    <div class="to-do-container">
+        <h1>To do list</h1>
+        <input class="user-input" type="text" placeholder="adicione uma tarefa" id="user-input">
+        <button id="add">add</button>
+        <ul class="task-container" id="task-content"> <!--lista que vai ser alimentada pelo JS-->
+            
+            
         </ul>
-        <div>
-            <button>Selecionar todas como concluídas</button>
-            <button>Limpar lista</button>
+        <div class="buttons-container" id="buttons-container">
+            <button class="btn" id="done-select">Selecionar todas como concluídas</button>
+            <button class="btn" id="delete-select">Limpar lista</button>
         </div>
     </div>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
