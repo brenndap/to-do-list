@@ -6,9 +6,16 @@ const deleteAll = document.getElementById("delete-select");
 const taskContent = document.getElementById("task-content");
 const buttonsContainer = document.getElementById("buttons-container");
 
+window.addEventListener('keypress', function(event){
+    if (event.key == "Enter") {
+        toDo();
+    }
+});
+
+add.addEventListener("click", toDo);
 
 // evento para adicionar tarefa
-add.addEventListener("click", function(event){ 
+function toDo(){ 
     event.preventDefault();
     //validação do input do usuário
     if(userInput.value.length == 0 || userInput.value.replace(/\s+/g, '').length == 0){
@@ -38,7 +45,7 @@ add.addEventListener("click", function(event){
         task.style.color = "#aeaeae";
     });
 
-    
+
 
     // evento para excluir tarefa
     deleteTask.addEventListener("click", function(){
@@ -56,5 +63,5 @@ add.addEventListener("click", function(event){
 
 
    
-});
+};
 
