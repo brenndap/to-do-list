@@ -6,15 +6,7 @@ const deleteAll = document.getElementById("delete-select");
 const taskContent = document.getElementById("task-content");
 const buttonsContainer = document.getElementById("buttons-container");
 
-window.addEventListener('keypress', function(event){
-    if (event.key == "Enter") {
-        toDo();
-    }
-});
 
-add.addEventListener("click", toDo);
-
-// evento para adicionar tarefa
 function toDo(){ 
     event.preventDefault();
     //validação do input do usuário
@@ -45,8 +37,6 @@ function toDo(){
         task.style.color = "#aeaeae";
     });
 
-
-
     // evento para excluir tarefa
     deleteTask.addEventListener("click", function(){
         task.remove();
@@ -65,3 +55,12 @@ function toDo(){
    
 };
 
+// adiciona evento para receber input do usuário pela tecla enter
+window.addEventListener('keypress', function(event){
+    if (event.key == "Enter") {
+        toDo();
+    }
+});
+
+// adiciona evento no botão add
+add.addEventListener("click", toDo);
