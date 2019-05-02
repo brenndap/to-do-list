@@ -1,0 +1,124 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d2c4fc;
+}
+
+
+.container {
+    width: 100%;
+    font-family: 'Open-sans', sans-serif;
+}
+
+.todo-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.list {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.list__title {
+    text-align: center;
+
+}
+.list h1 {
+    padding: 10px 0;
+}
+
+.user-input {
+    border: 2px solid rgb(219, 218, 218);
+    width: 100%;
+    height: 10vh;
+    padding: 0 30px;
+    font-size: 20px;
+}
+
+.add__btn {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    background-color: #ba79f8;
+    width: 100%;
+    height: 9vh;
+    cursor: pointer;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add__btn:focus{
+    outline: none;
+}
+
+.task__container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task__add {
+    list-style-position: inside;
+    border: 1px solid #aeaeae;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.task__add--done{
+    text-decoration: line-through;
+    color : #aeaeae;
+}
+
+.task__add--undone{
+    text-decoration: none;
+    color : #000;
+}
+
+.delete__icon {
+    width: 5%;
+}
+
+.list__buttons {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto ;
+    width: 95%;
+}
+
+.btn {
+    background-color: #9745e4;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 20px 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+}
+
+.btn:focus{
+    outline: none;
+}
+
+.btn--desfazer{
+    display: none;
+}
