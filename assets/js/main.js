@@ -8,10 +8,10 @@ const taskContent = document.getElementById("task-content");
 const buttonsContainer = document.getElementById("buttons-container");
 
 
-function toDo(){ 
+function toDo() {
     event.preventDefault();
     //validação do input do usuário
-    if(userInput.value.length == 0 || userInput.value.replace(/\s+/g, '').length == 0){
+    if (userInput.value.length == 0 || userInput.value.replace(/\s+/g, '').length == 0) {
         alert("Digite um valor válido!");
         return;
     };
@@ -23,75 +23,59 @@ function toDo(){
     //adiciona tag li com a tarefa na lista 
     let task = document.createElement("li");
     task.innerHTML = userInput.value;
+
     //adiciona deleteTask na tarefa da lista 
     task.appendChild(deleteTask);
     taskContent.appendChild(task);
-    task.setAttribute("draggable", "true");
     task.setAttribute("class", "task__add");
     buttonsContainer.style.display = "flex";
     undoneAll.style.display = "none";
+    doneAll.style.display = "block";
     // reseta o input 
     userInput.value = "";
+
     // funcão para dar check nas tarefas
-    function doneTask(){
+    function doneTask() {
         task.classList.add("task__add--done");
+    };
+
+    //verifica se todas as tarefas estão check
+    function isCheck() {
         
-    };
-
-    function undoneTask(){
-        task.classList.remove("task__add--done");
-        task.classList.add("task__add--undone");
-    }
-
-    let isDone = false;
-    function verifyTask(){
         let taskList = document.querySelectorAll(".task__add");
-        for(let i = 0; i < taskList.length; i++){
-            console.log("estou rodando");
-            if(taskList[i].classList.contains("task__add--done")){
-                if(taskList[i] == taskList[taskList.length - 1]){
-                    isDone = false;
-                }
-                isDone = true;
-
-            }else if(!taskList[i].classList.contains("task__add--done")){
-                isDone = false;
-            }
-        };
-        return isDone;
+        return Array.from(taskList).filter(array => array.classList.contains("task__add--done")).length == taskList.length;
     };
 
-    //evento para dar check nas tarefas
-    task.addEventListener("click", function(){
-        if(task.classList.contains("task__add--done")){
-            // task.style.textDecoration = "none";
-            // task.style.color = "#000";
+    //evento para dar check nas tarefass
+    task.addEventListener("click", function () {
+        if (task.classList.contains("task__add--done")) {
             task.classList.remove("task__add--done");
-        }else if(task.classList.contains("task__add--undone")){
+        } else if (task.classList.contains("task__add--undone")) {
             task.classList.remove("task__add--undone");
             doneTask();
-        }else{
+        } else {
             doneTask();
         }
 
-        verifyTask();
-        console.log(isDone)
-        if(isDone){
+        
+        if (isCheck()) {
             undoneAll.style.display = "block";
             doneAll.style.display = "none";
-        }else{
+            
+        } else {
             undoneAll.style.display = "none";
             doneAll.style.display = "block";
-        }
+        };
+        
     });
 
     // evento para excluir tarefa
-    deleteTask.addEventListener("click", function(){
+    deleteTask.addEventListener("click", function () {
         task.remove();
     });
 
     // evento para concluir todas as tarefas
-    doneAll.addEventListener("click", function(){
+    doneAll.addEventListener("click", function () {
         task.classList.remove("task__add--undone");
         doneTask();
         doneAll.style.display = "none";
@@ -99,27 +83,25 @@ function toDo(){
     });
 
     //evento para desfazer seleção
-    undoneAll.addEventListener("click", function(){
-        // task.style.textDecoration = "none";
-        // task.style.color = "#000";
-        undoneTask();
+    undoneAll.addEventListener("click", function () {
+        task.classList.remove("task__add--done");
+        task.classList.add("task__add--undone");
         doneAll.style.display = "block";
         undoneAll.style.display = "none";
 
-        
+
     });
 
-
     // evento para excluir todas as tarefas
-    deleteAll.addEventListener("click", function(){
+    deleteAll.addEventListener("click", function () {
         task.remove();
         buttonsContainer.style.display = "none";
     });
-
+    
 };
 
 // adiciona evento para receber input do usuário pela tecla enter
-window.addEventListener('keypress', function(event){
+window.addEventListener('keypress', function (event) {
     if (event.key == "Enter") {
         toDo();
     };

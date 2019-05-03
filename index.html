@@ -5,36 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/CSSReset.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <title>To do list</title>
 </head>
 
 <body>
-    <main class="container">
+    
 
-        <section class="todo-container">
-            <div class="list">
-                <div class="list__title">
-                    <h1>Todo list</h1>
-                    <input id="user-input" class="user-input" type="text" placeholder="adicione uma tarefa">
-                </div>
-                <div class="list__button">
-                    <button id="add-btn" class="add__btn">Add</button>
-                </div>
-                <div class="list__task">
-                    <ul class="task__container" id="task-content">
-                        
-                    </ul>
-                </div>
-                <div class="list__buttons" id="buttons-container">
-                    <button class="btn" id="done-all">Selecionar todas como concluídas</button>
-                    <button class="btn btn--desfazer" id="undone-all">Desfazer</button>
-                    <button class="btn" id="delete-all">Limpar lista</button>
-                </div>
+    <main class="todo-container">
+
+        <div class="list">
+            <div class="list__title">
+                <h1>Todo list</h1>
+                <input id="user-input" class="user-input" type="text" placeholder="adicione uma tarefa">
             </div>
-        </section>
+            <div class="list__button">
+                <button id="add-btn" class="add__btn">Add</button>
+            </div>
+            <div class="list__task">
+                <ul class="task__container" id="task-content">
+                    
+                </ul>
+            </div>
+            <div class="list__buttons" id="buttons-container">
+                <button class="btn" id="done-all">Concluir todas</button>
+                <button class="btn btn--desfazer" id="undone-all">Desfazer</button>
+                <button class="btn" id="delete-all">Limpar lista</button>
+            </div>
+        </div>
+
     </main>
+
+    
     <script src="./assets/js/main.js"></script>
 </body>
 
